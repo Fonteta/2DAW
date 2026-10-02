@@ -1,12 +1,14 @@
+//Autor: Jesús Fontestad Royo
+
 var nombreVar = 'Jesus';
 let nombreLet = 'Ramon';
 const nombreConst = 'Juan';
 
 document.getElementById("salida1").textContent =
     "Antes:\n" +
-    nombreVar + "\n" +
-    nombreLet + "\n" +
-    nombreConst + "\n\n";
+    "var: " + nombreVar + "\n" +
+    "let: " + nombreLet + "\n" +
+    "const: " + nombreConst + "\n\n";
 
 nombreVar = "Carlos";
 nombreLet = "Pedro";
@@ -14,6 +16,6 @@ nombreLet = "Pedro";
 
 document.getElementById("salida1").textContent +=
     "Después:\n" +
-    nombreVar + "\n" +
-    nombreLet + "\n" +
-    nombreConst;
+    "var: " + nombreVar + "\n" +
+    "let: " + nombreLet + "\n" +
+    "const: " + nombreConst;
