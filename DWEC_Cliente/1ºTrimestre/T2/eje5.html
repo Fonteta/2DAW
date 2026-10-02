@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8" />
+        <title>UD2 DOM</title>
+        <style>
+            section {
+                border: 1px solid #ddd;
+                padding: 10px 14px;
+                margin: 12px 0;
+            }
+
+            h2 {
+                margin: 0 0 10px;
+            }
+
+            .precio {
+                font-weight: bold;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="contenedor">
+            <h1>Tienda - Panel</h1>
+            <section id="productos">
+                <h2>Productos</h2>
+                <ul id="lista">
+                    <li id="p1">Café <span class="precio">3.50</span> €</li>
+                    <li id="p2">Té <span class="precio">2.80</span> €</li>
+                    <li id="p3">Cacao <span class="precio">4.00</span> €</li>
+                </ul>
+            </section>
+            <section id="alumnos">
+                <h2>Alumnos</h2>
+                <label><input type="checkbox" name="alumnos" /> Ana</label><br />
+                <label><input type="checkbox" name="alumnos" /> Luis</label><br />
+                <label><input type="checkbox" name="alumnos" /> Marta</label><br />
+            </section>
+            <section id="noticias">
+                <h2>Noticias</h2>
+                <p id="n1">Hoy abrimos nueva sección de infusiones.</p>
+                <p id="n2">Llegó stock de Cacao Premium.</p>
+            </section>
+            <section id="salida">
+                <h2>Salida</h2>
+                <div id="log"></div>
+            </section>
+        </div>
+
+        <script>
+            //5.1
+            var numPrecios = document.querySelectorAll("#productos .precio").length;
+
+            document.getElementById("log").textContent =
+                "Hay " + numPrecios + " precios listados";
+
+
+            //5.2
+            var lista = document.getElementById("lista");
+
+            document.getElementById("log").innerHTML +=
+                "<br>innerHTML: " + lista.innerHTML;
+
+            document.getElementById("log").innerHTML +=
+                "<br>textContent: " + lista.textContent;
+
+
+            //5.3
+            document.getElementById("n2").textContent =
+                "Reposición completada. ¡Gracias por vuestra paciencia!";
+
+
+            //5.4
+            var precios = document.querySelectorAll("#productos .precio");
+
+            for (var i = 0; i < precios.length; i++) {
+                precios[i].textContent =
+                    (parseFloat(precios[i].textContent) + 0.10).toFixed(2);
+            }
+
+
+            //5.5
+            var nuevoProducto = document.createElement("li");
+
+            nuevoProducto.innerHTML =
+                "Tila <span class='precio'>2.20</span> €";
+
+            document.getElementById("lista").append(nuevoProducto);
+
+
+            //5.6
+            var primerProducto =
+                document.querySelector("#lista li");
+
+            var productoDestacado = document.createElement("li");
+
+            productoDestacado.textContent =
+                "Producto destacado 9.99 €";
+
+            primerProducto.replaceWith(productoDestacado);
+
+
+            //5.7
+            document.getElementById("n2").remove();
+
+
+            //5.8
+            var alumnos = document.getElementsByName("alumnos");
+
+            for (var i = 0; i < alumnos.length; i++) {
+                alumnos[i].checked = true;
+            }
+
+
+            //5.9
+            var numElementos =
+                document.querySelectorAll("#lista li").length;
+
+            document.getElementById("log").innerHTML +=
+                "<br>Elementos totales en #lista: " + numElementos;
+
+        </script>
+    </body>
+
+</html>
